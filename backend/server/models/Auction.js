@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const auctionSchema = new mongoose.auctionSchema({
+const auctionSchema = new mongoose.Schema({
     _id: {
         type: String,
     },
@@ -8,7 +8,7 @@ const auctionSchema = new mongoose.auctionSchema({
         type: String,
     },
     Volume: {
-        type: double,
+        type: Number,
     },
     Unit: {
         type: String,
