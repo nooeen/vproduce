@@ -9,10 +9,11 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/mongodb', function(req, res, next) {
-    auctionModel.find({ })
+    auctionModel.find({})
         .then((auction, err) => {
             res.status(200).send(auction.Volume)
             console.log(auction)
+            console.log(err)
         })
         .catch((err) => {
             res.status(500).json(err);
