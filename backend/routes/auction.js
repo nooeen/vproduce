@@ -22,7 +22,8 @@ router.get('/list', function(req, res, next) {
 });
 
 router.get('/listBid', function(req, res, next) {
-    bidModel.find({})
+    var mysort = {price: -1}
+    bidModel.find({}).sort(mysort)
         .then((auction, err) => {
             res.status(200).json(auction)
             console.log(auction)
