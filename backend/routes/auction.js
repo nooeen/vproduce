@@ -12,7 +12,19 @@ router.get('/', function(req, res, next) {
 router.get('/list', function(req, res, next) {
     auctionModel.find({})
         .then((auction, err) => {
-            res.status(200).send(auction.Volume)
+            res.status(200).json(auction)
+            console.log(auction)
+            console.log(err)
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        })
+});
+
+router.get('/listBid', function(req, res, next) {
+    bidModel.find({})
+        .then((auction, err) => {
+            res.status(200).json(auction)
             console.log(auction)
             console.log(err)
         })
@@ -22,8 +34,9 @@ router.get('/list', function(req, res, next) {
 });
 
 
+
 router.post('/createBid', function(req, res, next) {
-    req.body.auctionID = "6262e3faf10fb4747f8883be";
+    req.body.auctionID = "62632301e320a87ad6e10290";
     //req.body.volume = "10";
     //req.body.unit = "kg";
     //req.body.price = "10000";
@@ -35,6 +48,17 @@ router.post('/createBid', function(req, res, next) {
     .catch((err) => {
         res.status(500).json(err);
     })
+});
+
+router.get('/deleteBid', function(req, res, next) {
+    bidModel.deleteMany()
+        .then((auction, err) => {
+            res.status(200).send(auction.Volume)
+            
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        })
 });
 
  
