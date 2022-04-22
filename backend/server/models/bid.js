@@ -10,6 +10,9 @@ const bidSchema = new mongoose.Schema({
     unit: {
         type: String,
     },
+    price: {
+        type: String,
+    },
 }, {timestamps: true} );
 
 module.exports = mongoose.model("bid", bidSchema);

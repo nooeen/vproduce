@@ -1,5 +1,6 @@
 var express = require('express');
 const auctionModel = require("../server/models/Auction");
+const bidModel = require("../server/models/bid");
 var router = express.Router();
 
 /* GET auction test. */
@@ -8,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/mongodb', function(req, res, next) {
+router.get('/list', function(req, res, next) {
     auctionModel.find({})
         .then((auction, err) => {
             res.status(200).send(auction.Volume)
@@ -20,37 +21,35 @@ router.get('/mongodb', function(req, res, next) {
         })
 });
 
-// getMessage(req, res) {
-//     Message.find({$or: [{
-//         sender: req.query.sender,
-//         receiver: req.query.receiver,
-//     }, {
-//         receiver: req.query.sender,
-//         sender: req.query.receiver,
-//     }]})
+
+router.post('/createBid', function(req, res, next) {
+    req.body.auctionID = "6262e3faf10fb4747f8883be";
+    //req.body.volume = "10";
+    //req.body.unit = "kg";
+    //req.body.price = "10000";
+    const newBid = new bidModel(req.body);
+    newBid.save()
+    .then((messages, err) => {
+        res.status(200).json(messages);
+    })
+    .catch((err) => {
+        res.status(500).json(err);
+    })
+});
+
+ 
+
+//api/chat/saveMessage
+// saveMessage(req, res, next) {
+//     const newMessage = new Message(req.body);
+//     newMessage.save()
 //     .then((messages, err) => {
-//         for(let i = 0; i < messages.length; i++){
-//             if(req.query.sender == messages[i].sender) {
-//                 messages[i] = {
-//                     own: true,
-//                     text: messages[i].text,
-//                     createdAt: messages[i].createdAt,
-//                 }
-//             } else {
-//                 messages[i] = {
-//                     own: false,
-//                     sender: messages[i].sender,
-//                     text: messages[i].text,
-//                     createdAt: messages[i].createdAt,
-//                 }
-//             }
-//         }
-//         //console.log(messages)
 //         res.status(200).json(messages);
 //     })
 //     .catch((err) => {
 //         res.status(500).json(err);
 //     })
 // }
+
 
 module.exports = router;
