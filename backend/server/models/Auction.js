@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const auctionSchema = new mongoose.auctionSchema({
-    ID: {
+    _id: {
         type: String,
     },
     Product: {
