@@ -3,6 +3,12 @@ const auctionModel = require("../server/models/Auction");
 const bidModel = require("../server/models/bid");
 var router = express.Router();
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  }
+
 /* GET auction test. */
 router.get('/', function(req, res, next) {
   res.send('test');
@@ -38,9 +44,9 @@ router.get('/listBid', function(req, res, next) {
 
 router.post('/createBid', function(req, res, next) {
     req.body.auctionID = "62632301e320a87ad6e10290";
-    //req.body.volume = "10";
-    //req.body.unit = "kg";
-    //req.body.price = "10000";
+    req.body.volume = getRandomInt(1,10);
+    req.body.unit = "kg";
+    req.body.price = getRandomInt(12,25);
     const newBid = new bidModel(req.body);
     newBid.save()
     .then((messages, err) => {
