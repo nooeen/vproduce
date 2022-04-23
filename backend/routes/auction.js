@@ -19,8 +19,6 @@ router.get('/list', function(req, res, next) {
     auctionModel.find({})
         .then((auction, err) => {
             res.status(200).json(auction)
-            console.log(auction)
-            console.log(err)
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -32,8 +30,6 @@ router.get('/listBid', function(req, res, next) {
     bidModel.find({}).sort(mysort)
         .then((auction, err) => {
             res.status(200).json(auction)
-            console.log(auction)
-            console.log(err)
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -82,7 +78,6 @@ router.get('/total', function(req, res, next) {
                 quantity -= auction[i].volume;
                 total += auction[i].volume * auction[i].price; 
             }
-            console.log(total);
             var temp = {total: total};
             res.status(200).json(temp);
         })
@@ -105,7 +100,6 @@ router.get('/getRemain', function(req, res, next) {
                 quantity -= auction[i].volume;
                 total += auction[i].volume * auction[i].price; 
             }
-            console.log(total);
             var temp = {total: quantity};
             res.status(200).json(temp);
         })
