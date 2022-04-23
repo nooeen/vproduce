@@ -201,6 +201,29 @@ class TrackingScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 30),
+        child: ElevatedButton(
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all<Color>(const Color(0xff2bc61d)),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      side: const BorderSide(color: Color(0xff2BC61D))))),
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+          },
+          child: const Padding(
+            padding: EdgeInsets.all(14.0),
+            child: VText(
+                text: "Quay về trang chủ",
+                color: Colors.white,
+                size: 18,
+                isBold: true),
+          ),
+        ),
+      ),
     );
   }
 }

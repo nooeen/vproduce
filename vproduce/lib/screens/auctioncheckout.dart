@@ -62,8 +62,8 @@ class AuctionCheckoutScreen extends StatelessWidget {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const VText(
+                      children: const [
+                        VText(
                             text: "Đấu giá vải thiều Lục Ngạn",
                             color: Colors.black,
                             size: 16,
