@@ -51,21 +51,18 @@ class _HomeScreenState extends State<HomeScreen> {
         showUnselectedLabels: false,
         items: const [
           BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(Icons.home),
+            label: 'Shop',
+            icon: Icon(Icons.shopping_cart_outlined),
           ),
           BottomNavigationBarItem(
-            label: 'Music',
+            label: 'Search',
             icon: Icon(Icons.search),
           ),
           BottomNavigationBarItem(
-            label: 'Places',
-            icon: Icon(Icons.add_circle_rounded),
-          ),
+              label: 'Favorite', icon: Icon(Icons.favorite_border)),
           BottomNavigationBarItem(
-            label: 'News',
-            icon: Icon(Icons.person),
-          ),
+              label: '...', icon: Icon(Icons.list_outlined)),
+          BottomNavigationBarItem(label: '', icon: Icon(Icons.person_outline)),
         ],
       ),
       body: getBody(),

@@ -18,24 +18,14 @@ class VText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isLeft
-        ? Text(
-            text,
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                fontFamily: 'GoogleSans',
-                color: color,
-                fontSize: size,
-                fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
-          )
-        : Text(
-            text,
-            textAlign: TextAlign.right,
-            style: TextStyle(
-                fontFamily: 'GoogleSans',
-                color: color,
-                fontSize: size,
-                fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
-          );
+    return Text(
+      text,
+      textAlign: isLeft ? TextAlign.right : TextAlign.left,
+      style: TextStyle(
+          fontFamily: 'GoogleSans',
+          color: color,
+          fontSize: size,
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
+    );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vproduce/widgets/vtext.dart';
 import 'package:vproduce/widgets/product.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({Key? key}) : super(key: key);
@@ -23,13 +22,13 @@ class StoreScreen extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: VText(
-                        text: "Đấu giá",
+                        text: "Mua & Đấu giá",
                         color: Colors.white,
-                        size: 32,
+                        size: 28,
                         isBold: true),
                   ),
                   const Padding(
-                    padding: EdgeInsets.fromLTRB(10, 50, 15, 0),
+                    padding: EdgeInsets.fromLTRB(12, 45, 15, 0),
                     child: VText(
                         text: "nông sản",
                         color: Colors.white,
@@ -41,7 +40,7 @@ class StoreScreen extends StatelessWidget {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/product');
+                  Navigator.pushNamed(context, '/fixed');
                 },
                 child: const Product(
                     name: "Thanh long ruột đỏ",
@@ -53,7 +52,7 @@ class StoreScreen extends StatelessWidget {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/product');
+                  Navigator.pushNamed(context, '/auction');
                 },
                 child: const Product(
                     name: "Vải thiều Lục Ngạn",
@@ -61,12 +60,13 @@ class StoreScreen extends StatelessWidget {
                     unit: "kg",
                     star: 4.5,
                     image: 'assets/vaithieu.png',
-                    offset: 135),
+                    offset: 135,
+                    isAuction: true),
               ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/product');
+                  // Navigator.pushNamed(context, '/product');
                 },
                 child: const Product(
                     name: "Cam sành Hà Giang",
@@ -79,7 +79,7 @@ class StoreScreen extends StatelessWidget {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/product');
+                  // Navigator.pushNamed(context, '/product');
                 },
                 child: const Product(
                     name: "Quýt Bắc Kạn",

@@ -8,6 +8,7 @@ class Product extends StatelessWidget {
   final double star;
   final String image;
   final double offset;
+  final bool isAuction;
 
   const Product(
       {Key? key,
@@ -16,7 +17,8 @@ class Product extends StatelessWidget {
       required this.unit,
       required this.star,
       required this.image,
-      this.offset = 133})
+      this.offset = 133,
+      this.isAuction = false})
       : super(key: key);
 
   @override
@@ -46,6 +48,15 @@ class Product extends StatelessWidget {
               size: 18,
               isBold: false),
         ),
+        isAuction
+            ? const Padding(
+                padding: EdgeInsets.fromLTRB(286, 63, 12, 12),
+                child: VText(
+                    text: "Đấu giá",
+                    color: Colors.white,
+                    size: 18,
+                    isBold: false))
+            : Wrap(),
       ],
     );
   }

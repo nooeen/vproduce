@@ -3,8 +3,8 @@ import 'package:vproduce/widgets/vtext.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
-  'assets/vaithieu1.png',
-  'assets/vaithieu2.jpg',
+  'assets/thanhlong1.png',
+  'assets/thanhlong2.jpg',
 ];
 
 final List<Widget> imageSliders = imgList
@@ -39,8 +39,8 @@ final List<Widget> imageSliders = imgList
         ))
     .toList();
 
-class AuctionProductScreen extends StatelessWidget {
-  const AuctionProductScreen({Key? key}) : super(key: key);
+class FixedProductScreen extends StatelessWidget {
+  const FixedProductScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class AuctionProductScreen extends StatelessWidget {
             child: Row(
               children: const [
                 VText(
-                    text: "Vải thiều Lục Ngạn",
+                    text: "Thanh long ruột đỏ",
                     color: Colors.black,
                     size: 26,
                     isBold: true),
@@ -90,7 +90,7 @@ class AuctionProductScreen extends StatelessWidget {
             child: Row(
               children: const [
                 VText(
-                    text: "Vải, vải thiều",
+                    text: "Trái cây",
                     color: Colors.grey,
                     size: 18,
                     isBold: false),
@@ -102,7 +102,7 @@ class AuctionProductScreen extends StatelessWidget {
             child: Row(
               children: const [
                 VText(
-                    text: "10000 - 23000đ / 1Kg",
+                    text: "15000đ / 1Kg",
                     color: Color(0xff2BC61D),
                     size: 18,
                     isBold: true),
@@ -124,20 +124,20 @@ class AuctionProductScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 20, 12, 20),
-                      child:
-                          Image(image: AssetImage('assets/avatarvaithieu.png')),
+                      padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
+                      child: Image(
+                          image: AssetImage('assets/avatarthanhlong.png')),
                     ),
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           VText(
-                              text: "Vải Thiều Chúa",
+                              text: "Thanh Long Chúa",
                               color: Colors.black,
                               size: 16,
                               isBold: true),
                           VText(
-                              text: "Trực tuyến 18 phút trước",
+                              text: "Trực tuyến 20 phút trước",
                               color: Colors.grey,
                               size: 12,
                               isBold: false),
@@ -197,7 +197,7 @@ class AuctionProductScreen extends StatelessWidget {
                               padding: EdgeInsets.only(bottom: 4),
                               child: VText(
                                   text:
-                                      "Vải thiều của Vải thiều chúa sẽ không bao giờ từ bỏ \nbạn, sẽ  không bao giờ làm bạn thất vọng, sẽ không bao giờ \nchạy loanh quanh bỏ và bỏ rơi bạn.... ",
+                                      "Thanh long của thanh long chúa sẽ không bao giờ từ bỏ \nbạn, sẽ  không bao giờ làm bạn thất vọng, sẽ không bao giờ \nchạy loanh quanh bỏ và bỏ rơi bạn.... ",
                                   color: Colors.grey,
                                   size: 12,
                                   isBold: false),
@@ -222,15 +222,12 @@ class AuctionProductScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.0),
                       side: const BorderSide(color: Color(0xff2BC61D))))),
           onPressed: () {
-            Navigator.pushNamed(context, '/order/auction');
+            Navigator.pushNamed(context, '/checkout/fixed');
           },
           child: const Padding(
             padding: EdgeInsets.all(14.0),
             child: VText(
-                text: "Tham gia đấu giá",
-                color: Colors.white,
-                size: 18,
-                isBold: true),
+                text: "Mua ngay", color: Colors.white, size: 18, isBold: true),
           ),
         ),
       ),

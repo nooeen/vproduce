@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'VProduce',
-      initialRoute: '/',
+      initialRoute: '/checkout/successful',
       routes: appRoutes,
       theme: appTheme,
       themeMode: ThemeMode.dark,
