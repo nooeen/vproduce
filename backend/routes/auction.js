@@ -68,6 +68,52 @@ router.get('/deleteBid', function(req, res, next) {
         })
 });
 
+router.get('/total', function(req, res, next) {
+    let mysort = {price: -1}
+    let quantity = 15;
+    let total = 0;
+    bidModel.find({}).sort(mysort)
+        .then((auction, err) => {
+            for (let i = 0; i < auction.length; i++) {
+                if (quantity < auction[i].volume){
+                    quantity = 0;
+                    break;
+                }
+                quantity -= auction[i].volume;
+                total += auction[i].volume * auction[i].price; 
+            }
+            console.log(total);
+            var temp = {total: total};
+            res.status(200).json(temp);
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        })
+});
+
+router.get('/getRemain', function(req, res, next) {
+    let mysort = {price: -1}
+    let quantity = 15;
+    let total = 0;
+    bidModel.find({}).sort(mysort)
+        .then((auction, err) => {
+            for (let i = 0; i < auction.length; i++) {
+                if (quantity < auction[i].volume){
+                    quantity = 0;
+                    break;
+                }
+                quantity -= auction[i].volume;
+                total += auction[i].volume * auction[i].price; 
+            }
+            console.log(total);
+            var temp = {total: quantity};
+            res.status(200).json(temp);
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        })
+})
+
  
 
 //api/chat/saveMessage
