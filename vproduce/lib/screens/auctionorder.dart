@@ -8,7 +8,7 @@ import 'dart:convert';
 
 Future<List<Bid>> fetchBids(http.Client client) async {
   final response =
-      await client.get(Uri.parse('http://3.95.25.81:3000/auction/listBid'));
+      await client.get(Uri.parse('http://52.221.243.160:3000/auction/listBid'));
 
   // Use the compute function to run parsePhotos in a separate isolate.
   return compute(parseBids, response.body);
@@ -279,8 +279,8 @@ class _AuctionOrderScreenState extends State<AuctionOrderScreen> {
                         borderRadius: BorderRadius.circular(12.0),
                         side: const BorderSide(color: Color(0xff2BC61D))))),
             onPressed: () async {
-              await client
-                  .post(Uri.parse('http://3.95.25.81:3000/auction/createBid'));
+              // await client.post(
+              //     Uri.parse('http://52.221.243.160:3000/auction/createBid'));
               Navigator.pushNamed(context, '/checkout/auction');
             },
             child: const Padding(
